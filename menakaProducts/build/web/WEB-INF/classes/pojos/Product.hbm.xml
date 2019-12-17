@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2019 2:20:17 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Product" table="product" catalog="menakaproducts" optimistic-lock="version">
+        <id name="idproduct" type="java.lang.Integer">
+            <column name="idproduct" />
+            <generator class="identity" />
+        </id>
+        <property name="productname" type="string">
+            <column name="productname" length="100" not-null="true" />
+        </property>
+        <property name="img" type="string">
+            <column name="img" length="65535" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="9" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="6" />
+        </property>
+        <set name="packagesHasProducts" table="packages_has_product" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_idproduct" not-null="true" />
+            </key>
+            <one-to-many class="pojos.PackagesHasProduct" />
+        </set>
+        <set name="suppliers" table="supplier" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_idproduct" not-null="true" />
+            </key>
+            <one-to-many class="pojos.Supplier" />
+        </set>
+        <set name="looseStocks" table="loose_stock" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_idproduct" not-null="true" />
+            </key>
+            <one-to-many class="pojos.LooseStock" />
+        </set>
+    </class>
+</hibernate-mapping>

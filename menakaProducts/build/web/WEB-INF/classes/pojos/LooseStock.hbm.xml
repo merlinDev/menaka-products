@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2019 2:20:17 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.LooseStock" table="loose_stock" catalog="menakaproducts" optimistic-lock="version">
+        <id name="iditem" type="java.lang.Integer">
+            <column name="iditem" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="product" class="pojos.Product" fetch="select">
+            <column name="product_idproduct" not-null="true" />
+        </many-to-one>
+        <property name="qty" type="java.lang.Double">
+            <column name="qty" precision="22" scale="0" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="9" />
+        </property>
+        <property name="uprice" type="double">
+            <column name="uPrice" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="cartHasItems" table="cart_has_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="item_iditem" not-null="true" />
+            </key>
+            <one-to-many class="pojos.CartHasItem" />
+        </set>
+    </class>
+</hibernate-mapping>

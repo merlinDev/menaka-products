@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2019 2:20:17 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Invoice" table="invoice" catalog="menakaproducts" optimistic-lock="version">
+        <id name="idinvoice" type="java.lang.Integer">
+            <column name="idinvoice" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="location" class="pojos.Location" fetch="select">
+            <column name="location_idlocation" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="pojos.User" fetch="select">
+            <column name="user_iduser" not-null="true" />
+        </many-to-one>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="netTotal" type="java.lang.Double">
+            <column name="netTotal" precision="22" scale="0" />
+        </property>
+        <property name="discount" type="java.lang.Double">
+            <column name="discount" precision="22" scale="0" />
+        </property>
+        <property name="subTotal" type="java.lang.Double">
+            <column name="subTotal" precision="22" scale="0" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="6" />
+        </property>
+        <set name="invicephotos" table="invicephoto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="invoice_idinvoice" not-null="true" />
+            </key>
+            <one-to-many class="pojos.Invicephoto" />
+        </set>
+        <set name="invoiceHasCartItems" table="invoice_has_cart_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="invoice_idinvoice" not-null="true" />
+            </key>
+            <one-to-many class="pojos.InvoiceHasCartItem" />
+        </set>
+        <set name="invoiceHasCartPackageses" table="invoice_has_cart_packages" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="invoice_idinvoice" not-null="true" />
+            </key>
+            <one-to-many class="pojos.InvoiceHasCartPackages" />
+        </set>
+        <set name="invoiceHasCartHasPacketses" table="invoice_has_cart_has_packets" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="invoice_idinvoice" not-null="true" />
+            </key>
+            <one-to-many class="pojos.InvoiceHasCartHasPackets" />
+        </set>
+    </class>
+</hibernate-mapping>

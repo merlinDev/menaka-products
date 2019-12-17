@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2019 2:20:17 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.DiscountCodes" table="discount_codes" catalog="menakaproducts" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="pojos.User" fetch="select">
+            <column name="user_iduser" not-null="true" />
+        </many-to-one>
+        <property name="message" type="string">
+            <column name="message" length="65535" />
+        </property>
+        <property name="expDate" type="date">
+            <column name="expDate" length="10" />
+        </property>
+        <property name="code" type="string">
+            <column name="code" length="100" />
+        </property>
+        <property name="value" type="java.lang.Double">
+            <column name="value" precision="22" scale="0" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="9" />
+        </property>
+    </class>
+</hibernate-mapping>

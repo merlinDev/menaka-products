@@ -1,0 +1,21 @@
+
+.navv{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3px 10px;
+    margin: 10px 0 50px 0;
+    border-bottom: solid 1px rgba(0,0,0,0.05);
+}
+
+.logo{
+    width: 90px;
+    padding: 6px;
+}
+
+@media only screen and (max-width: 380px){
+    .logo{
+        display: none;
+    }
+}
+
+

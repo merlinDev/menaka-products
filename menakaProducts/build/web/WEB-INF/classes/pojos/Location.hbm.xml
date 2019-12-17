@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2019 2:20:17 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Location" table="location" catalog="menakaproducts" optimistic-lock="version">
+        <id name="idlocation" type="java.lang.Integer">
+            <column name="idlocation" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="pojos.User" fetch="select">
+            <column name="user_iduser" not-null="true" />
+        </many-to-one>
+        <many-to-one name="zip" class="pojos.Zip" fetch="select">
+            <column name="zip_idzip" not-null="true" />
+        </many-to-one>
+        <property name="street" type="string">
+            <column name="street" length="65535" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="65535" />
+        </property>
+        <property name="lang" type="java.lang.Double">
+            <column name="lang" precision="22" scale="0" />
+        </property>
+        <property name="lat" type="java.lang.Double">
+            <column name="lat" precision="22" scale="0" />
+        </property>
+        <property name="tel" type="java.lang.Integer">
+            <column name="tel" />
+        </property>
+        <set name="invoices" table="invoice" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="location_idlocation" not-null="true" />
+            </key>
+            <one-to-many class="pojos.Invoice" />
+        </set>
+    </class>
+</hibernate-mapping>

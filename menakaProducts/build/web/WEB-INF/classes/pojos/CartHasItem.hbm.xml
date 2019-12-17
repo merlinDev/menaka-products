@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2019 2:20:17 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.CartHasItem" table="cart_has_item" catalog="menakaproducts" optimistic-lock="version">
+        <id name="idCartItem" type="java.lang.Integer">
+            <column name="id_cartItem" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cart" class="pojos.Cart" fetch="select">
+            <column name="cart_idcart" not-null="true" />
+        </many-to-one>
+        <many-to-one name="looseStock" class="pojos.LooseStock" fetch="select">
+            <column name="item_iditem" not-null="true" />
+        </many-to-one>
+        <property name="qty" type="java.lang.Double">
+            <column name="qty" precision="22" scale="0" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="7" />
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <set name="invoiceHasCartItems" table="invoice_has_cart_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cart_has_item_id_cartItem" not-null="true" />
+            </key>
+            <one-to-many class="pojos.InvoiceHasCartItem" />
+        </set>
+    </class>
+</hibernate-mapping>

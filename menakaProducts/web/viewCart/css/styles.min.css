@@ -1,0 +1,26 @@
+.cc{text-align:center}#test{position:fixed}
+
+.empty-cart{
+    background-color: #bdc3c7;
+    text-align: center;
+    padding: 90px;
+    color: #57606f;
+}
+
+.empty-cart button{
+    margin: 10px;
+    width: 150px;
+}
+
+.remove{
+    font-size: 18px;
+}
+.remove:hover{
+    cursor: pointer;
+}
+
+.pay input[type="submit"]{
+    border-radius: 30px;
+    width: 180px;
+    
+}

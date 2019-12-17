@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2019 2:20:17 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Zip" table="zip" catalog="menakaproducts" optimistic-lock="version">
+        <id name="idzip" type="java.lang.Integer">
+            <column name="idzip" />
+            <generator class="identity" />
+        </id>
+        <property name="zipcode" type="string">
+            <column name="zipcode" length="45" />
+        </property>
+        <property name="charge" type="java.lang.Double">
+            <column name="charge" precision="22" scale="0" />
+        </property>
+        <set name="locations" table="location" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="zip_idzip" not-null="true" />
+            </key>
+            <one-to-many class="pojos.Location" />
+        </set>
+    </class>
+</hibernate-mapping>

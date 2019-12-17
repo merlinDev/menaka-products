@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2019 2:20:17 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.PacketStock" table="packet_stock" catalog="menakaproducts" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="packet" class="pojos.Packet" fetch="select">
+            <column name="packet_idpacket" not-null="true" />
+        </many-to-one>
+        <property name="qty" type="java.lang.Integer">
+            <column name="qty" />
+        </property>
+        <property name="exp" type="date">
+            <column name="exp" length="10" />
+        </property>
+        <property name="man" type="date">
+            <column name="man" length="10" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="price" precision="22" scale="0" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="9" />
+        </property>
+        <set name="cartHasPacketses" table="cart_has_packets" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="packet_stock_id" not-null="true" />
+            </key>
+            <one-to-many class="pojos.CartHasPackets" />
+        </set>
+    </class>
+</hibernate-mapping>

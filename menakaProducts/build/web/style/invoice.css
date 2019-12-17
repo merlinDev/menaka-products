@@ -1,0 +1,42 @@
+body{
+    background-color: #f1f2f6;
+}
+.invoice, .photo{
+    height: auto;
+    background-color: white;
+    padding: 20px;
+}
+
+.photo{
+    margin: 30px;
+    width: 700px;
+}
+.photo h4{
+    font-weight: bold;
+    padding: 20px;
+}
+.invoice{
+    width: 700px;
+    border-left: solid 5px rgba(0,0,0,0.3);
+}
+.name{
+    font-weight: bold;
+}
+.action button{
+    width: 30%;
+}
+.photo img{
+    width: 650px;
+    margin-bottom: 20px;
+}
+.price{
+    float: right;
+}
+.tot{
+    padding: 20px 0;
+    border-top: solid 1px rgba(0,0,0,0.2);
+}
+
+.logo{
+    width: 90px;
+}

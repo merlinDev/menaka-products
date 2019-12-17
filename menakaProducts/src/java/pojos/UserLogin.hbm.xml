@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2019 2:20:17 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.UserLogin" table="user_login" catalog="menakaproducts" optimistic-lock="version">
+        <id name="iduserLogin" type="int">
+            <column name="iduser_login" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="user" class="pojos.User" fetch="select">
+            <column name="user_iduser" not-null="true" />
+        </many-to-one>
+        <property name="username" type="string">
+            <column name="username" length="250" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" />
+        </property>
+        <set name="loginSessions" table="login_session" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_login_iduser_login" not-null="true" />
+            </key>
+            <one-to-many class="pojos.LoginSession" />
+        </set>
+    </class>
+</hibernate-mapping>

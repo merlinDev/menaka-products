@@ -1,0 +1,201 @@
+
+.menu{
+    display: flex;
+    flex-flow: row;
+    text-align: left;
+}
+
+.menu li{
+    margin: 0 20px;
+    list-style-type: none; 
+}
+.register{
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+.register *{
+    width: 270px;
+    margin: 5px;
+    padding: 5px 10px;
+}
+
+.register input{
+    border: solid 1px rgba(0,0,0,0.3);
+}
+
+#form-div input {
+  border-radius:0;
+}
+
+#form-div button {
+  border-radius:0;
+}
+
+.reg-info{
+    max-width: 450px;
+    color: white;
+    margin-left: 50px;
+}
+
+.reg-info h4{
+    font-weight: bolder;
+}
+.reg-info p{
+    font-style: italic;
+}
+
+/* top */
+.top{
+    margin-top: 55px;
+    padding: 20px;
+    background-size: cover;
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    height: 40vh;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    text-align: center;
+    
+    background-image: url('../../img/');
+}
+
+.top button{
+    border-radius: 0;
+    display: block;
+    margin-top: 60px;
+    font-weight: 100;
+    font-size: 16px;
+    transition: .2s;
+
+}
+
+.count-me:hover{
+    cursor: pointer;
+}
+
+.top h1{
+    letter-spacing: 8px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    
+    border: solid;
+}
+
+.top h4{
+    margin-top: 50px;
+    letter-spacing: 5px;
+    font-weight: 300;
+}
+
+/* info */
+.items{ 
+    margin: 20px 0;
+}
+
+
+
+.info {
+    text-align:center;
+}
+
+.do-border{
+    border: solid 1px rgba(0,0,0,0.2);
+    border-bottom: none;
+    border-top: none;
+}
+
+#info-list {
+    font-weight: 300;
+    margin-top:27px;
+    color:rgb(0,0,0);
+    text-align:center;
+    padding:70px;
+    margin-right:0px;
+    margin-left:0px;
+    font-style: italic;
+}
+
+.items .row{
+    margin-top: 30px;
+}
+
+.items{
+    padding: 50px;
+}
+.items button{
+    border-radius: 0;
+}
+.item-img{
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-color: yellow;
+}
+.spice .item-img{
+    background-image: url('../../assets/img/aroma-aromatic-cinnamon-877220.jpg');
+}
+
+.packet .item-img{
+    background-image: url('../../assets/img/calum-lewis-391372-unsplash.jpg');
+}
+
+.package .item-img{
+    background-image: url('../../assets/img/taylor-kiser-361164-unsplash.jpg');
+}
+
+
+.item-info h3{
+    font-style: italic;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 580px){
+    
+    .top{
+        margin: 0;
+    }
+    
+    .top h1{
+        font-size: 34px;
+        line-height: 50px;
+    }
+    .top h1 span{
+        display: flex;
+        justify-content: center;
+        align-content: stretch;
+        padding: 0;
+    }
+    
+    .do-border{
+        border-left: none;
+        border-right: none;
+        border-top: solid 1px rgba(0,0,0,0.1);
+        border-bottom: solid 1px rgba(0,0,0,0.1);
+    }
+    
+    .top h4{
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .reg-info{
+        margin-left: 0;
+        margin-top: 30px;
+        text-align: center;
+    }
+    
+    .info *{
+        margin-top: 20px;
+    }
+    .item-info{
+        margin-top: 10px;
+    }
+    .items{
+        padding: 10px;
+    }
+    
+}

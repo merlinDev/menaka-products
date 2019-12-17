@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2019 2:20:17 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Vehicletype" table="vehicletype" catalog="menakaproducts" optimistic-lock="version">
+        <id name="idvehicleType" type="int">
+            <column name="idvehicleType" />
+            <generator class="assigned" />
+        </id>
+        <property name="type" type="string">
+            <column name="type" length="50" />
+        </property>
+        <set name="vehicles" table="vehicle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="vehicleType_idvehicleType" not-null="true" />
+            </key>
+            <one-to-many class="pojos.Vehicle" />
+        </set>
+    </class>
+</hibernate-mapping>

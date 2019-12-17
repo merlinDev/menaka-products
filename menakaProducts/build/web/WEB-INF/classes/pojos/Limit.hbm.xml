@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2019 2:20:17 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Limit" table="limit" catalog="menakaproducts" optimistic-lock="version">
+        <id name="idlimit" type="java.lang.Integer">
+            <column name="idlimit" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usertype" class="pojos.Usertype" fetch="select">
+            <column name="usertype_idusertype" not-null="true" />
+        </many-to-one>
+        <property name="totalQty" type="java.lang.Double">
+            <column name="totalQty" precision="22" scale="0" />
+        </property>
+        <property name="totalPrice" type="java.lang.Double">
+            <column name="totalPrice" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>
